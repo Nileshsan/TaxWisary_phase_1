@@ -1,5 +1,5 @@
 """
-URL configuration for tax_advisory project.
+URL configuration for tax_return_project project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -19,8 +19,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.shortcuts import render
-from tax_advisory.views import home, base_view  # Import specific views
-from users import views as user_views  # Avoid conflicts with tax_advisory.views
+from tax_return_project.views import home, base_view  # Import specific views
+from users import views as user_views  # Avoid conflicts with tax_return_project.views
 from django.contrib.auth import views as auth_views
 
 def home_view(request):
