@@ -13,7 +13,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tax_return_project_Copy.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tax_return_project.settings')
 
 application = get_wsgi_application()
 
