@@ -28,4 +28,4 @@ xhtml2pdf
 cloudinary
 reportlab
 python-dotenv
-cloudinary_storage
+django-cloudinary-storage
