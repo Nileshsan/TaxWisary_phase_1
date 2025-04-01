@@ -19,3 +19,11 @@ djangorestframework==3.14.0  # For building REST APIs (if applicable)
 django-filter==23.2  # For filtering in Django REST Framework
 celery==5.3.4  # For background tasks (if applicable)
 redis==5.0.0  # For caching or Celery backend (if applicable)
+
+
+Django
+torch
+transformers
+xhtml2pdf
+cloudinary
+reportlab
