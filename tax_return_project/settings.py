@@ -93,6 +93,7 @@ LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = "/users/base/"  # Ensure it redirects to the correct page
 LOGOUT_REDIRECT_URL = '/'
 
+DJANGO_SETTINGS_MODULE=tax_return_project.settings
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
