@@ -22,8 +22,8 @@ redis==5.0.0  # For caching or Celery backend (if applicable)
 
 
 Django
-torch
-transformers
+
+
 xhtml2pdf
 cloudinary
 reportlab
