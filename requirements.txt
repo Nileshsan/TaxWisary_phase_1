@@ -27,3 +27,4 @@ transformers
 xhtml2pdf
 cloudinary
 reportlab
+python-dotenv
