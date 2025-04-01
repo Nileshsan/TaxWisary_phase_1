@@ -29,4 +29,4 @@ cloudinary
 reportlab
 python-dotenv
 django-cloudinary-storage
-crispy-forms==1.14.0  # Adjust the version if needed
+crispy-forms 
