@@ -4,50 +4,7 @@ from io import BytesIO
 from django.http import JsonResponse, HttpResponse
 from django.template.loader import get_template
 from xhtml2pdf import pisa
-from transformers import AutoTokenizer, AutoModelForCausalLM
 
-# Load LLM model and tokenizer
-MODEL_PATH = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
-DEVICE = "cpu"
-
-# Load tokenizer & model
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-model = AutoModelForCausalLM.from_pretrained(MODEL_PATH).to(DEVICE)
-
-def get_llm_response(user_input, system_prompt):
-    """
-    Gets response from LLM based on user input and system prompt.
-    Uses max_new_tokens instead of max_length to avoid input length issues.
-    """
-    user_input = user_input.strip()
-    if not user_input:
-        return "No input detected. Please provide your response."
-
-    # Construct the prompt
-    prompt = f"<s>[SYSTEM] {system_prompt}\n[USER] {user_input}\n[ASSISTANT]"
-    inputs = tokenizer(prompt, return_tensors="pt").to(DEVICE)
-
-    try:
-        with torch.no_grad():
-            output = model.generate(
-                **inputs,
-                max_new_tokens=150,  # Changed from max_length to max_new_tokens
-                do_sample=False,
-                num_beams=1,
-                pad_token_id=tokenizer.eos_token_id
-            )
-
-        response = tokenizer.decode(output[0], skip_special_tokens=True)
-        response = response.split("[ASSISTANT]")[-1].strip()
-
-        if not response:
-            return "I'm sorry, I couldn't understand that. Could you rephrase?"
-        
-        return response
-
-    except Exception as e:
-        print(f"ERROR in get_llm_response: {str(e)}")
-        return "An error occurred. Please try again."
 
 def chatbot_view(request):
     """
